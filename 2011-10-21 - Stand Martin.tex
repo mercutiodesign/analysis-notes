@@ -1,0 +1,177 @@
+\documentclass[12pt,a4paper,leqno]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{ulsy}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[L]{Analysis I}
+\fancyhead[R]{21. September  2011}
+\fancyfoot[C]{\thepage}
+
+\author{Martin Dreher}
+
+\begin{document}
+\part*{Analysis 1}
+\ldots
+
+nach Satz 2:
+
+\section*{Reelle Zahlen}
+
+(Intuitiv: Jeder Punkt liegt auf der Geraden)
+
+\begin{description}
+\item[Def:] Ein \underline{dedekindscher Schnitt} in den reellen Zahlen ist eine Zerlegung $\mathbb{R} = A \cup B$ in zwei nicht leere Teilmengen, so dass jede Zahl $a \in A$ kleiner ist als jede Zahl $b \in B$.
+\end{description}
+
+\hfill \\
+
+\underline{Die Stetigkeitseigenschaft der reellen Zahlen (Dedekindsche Schnittaxiom)}
+
+\hfill
+
+Ist $\mathbb{R} = A \cup B$ ein dedekindscher Schnitt, so besitzt entweder $A$  eine größte Zahl oder $B$ besitzt eine kleinste Zahl. 
+
+Anm: A und B sind disjunkt, da 
+
+$$\mathbb{R} = A \cup B \textrm{(ein D-Schnitt)} \Leftrightarrow \forall a \in A \quad \forall b \in B : a < b$$
+
+
+\ldots
+
+jetzt folgt Satz 3: (Notiz: Bew. Für Schritt 1 per vollst. Induktion wäre interessant)
+
+
+nach Schritt 2 von Satz 3:
+
+\ldots
+
+\subsection*{Schritt 2}
+
+Die Menge 
+\begin{displaymath}
+C := { t \in \mathbb{R}: t > 0, t^n>x}
+\end{displaymath}
+hat kein kleinstes Element.
+
+\begin{description}
+\item[Bew:] Sei $t_0 \in C$ beliebig. Wir definieren 
+
+$$h := \frac{t_0^n-x}{n \cdot t_0^{n-1}} < \frac{t_0^n}{nt_0^{n-1}} = \frac{t_0}{n} \leq t_0$$
+
+
+Sei $t_1 := t_0 - h > 0$
+
+Außerdem gilt: 
+$$t_0^n - t_1^n \underbrace{<}_{\textrm{siehe (*)}} n \cdot h \cdot t_0^{n-1} = t_0^n - x \Rightarrow t_1^n > x \Rightarrow t_1^n \in B$$
+
+\end{description}
+
+\begin{flushright} $\square$ \end{flushright}
+
+\subsection*{Schritt 4:}
+
+Wir beweisen die Existenz von $y > 0$ mit $y^n = x$.
+
+\begin{description}
+
+\item[Bew:] Sei $A$ wie im Schritt 2 und sei $B = \mathbb{R} \backslash A$.
+
+Aus der Definition von A folgt das 
+$$ B = { t \in \mathbb{R} : t > 0 \textrm{ und } t^n \geq x } $$
+
+$A \cup B$ ist ein dedekindscher Schnitt: gäbe es ein $a \in A$ und $b \in B$ mit $a \geq b \Rightarrow a > 0$. Dann folgt aus $a \geq b$ aber $a^n \geq b^n$. \blitze{} zu $a^n < x$ und $b^n \geq x$ 
+ 
+$ \Rightarrow A \cup B$  ist ein dedekindscher Schnitt.
+
+Nach Schritt 2 hat $A$ kein größtes Element $\Rightarrow B$ hat ein kleinstes Element. Wir nennen dieses $y$.
+
+\item[Beh:] $y^n = x$. Wäre $y^n \neq x$, so müsste $y^n > x$ gelten, und $y$ wäre kleinstes Element von $C$. Widerspruch zu Schritt 3 $\Rightarrow y^n = x$
+\begin{flushright} $ \square $ \end{flushright}
+\end{description}
+
+---
+
+\ldots
+
+Nun folgt Definition von Schranken, Satz 4.
+
+\ldots
+
+\subsection*{Beweis von Satz 4}
+
+\begin{description}
+
+\item[Bew:] 
+
+Wir beweisen nur (1), da (2) völlig analog bewiesen wird.
+
+Sei also $A$ nicht leer und von oben beschränkt.
+
+Wir betrachten $X:= { M \in \mathbb{R} : \forall a \in A : a \leq M }$
+
+(Notiz: $X \neq \emptyset$ nach Voraussetzung.)
+
+Sei $Y := \mathbb{R} \backslash X$. Dann gilt $Y \neq \emptyset$, da $a - 1 \in Y$ für jedes $a \in A$.
+Außerdem gilt: 
+\begin{itemize}
+\item[(a)] $\mathbb{R} = Y \cup X$
+\item[(b)] für $y \in Y$ und $x \in X$ gilt stets $y < x$
+\end{itemize}
+
+Ist nämlich $y \in Y$, so ist $y$ \underline{nicht} obere Schranke von $A$
+
+$$
+\left.
+\begin{array}{l}
+\Rightarrow \exists a \in A \quad y < a \\
+\textrm{weil } x \in X \quad a \leq x
+\end{array}
+\right\} \Rightarrow y < x. $$
+
+(a), (b) $\Rightarrow \mathbb{R} = Y \cup X$ ist ein dedekindscher Schnitt.
+
+Sei $M_0$ das kleinste Element von $X$ oder das größte Element von $Y$.
+
+\item[Beh:] $M_0$ ist nicht größtes Element von $Y$.
+
+Andernfalls wäre $M_0 \in Y \Rightarrow \exists a \in A : M_0 < a$  und für $M_1 = \frac{M_0 + a}{2}$ gilt $M_0 < M_1 < a$ Widerspruch zu $M_0$ ist größtes Element von $Y$.
+\end{description}
+
+
+
+\ldots
+
+Nun folgt der Rest des Beweises von Satz 4
+
+\underline{Potenzen $a^x$}
+
+\ldots
+
+
+Für $x \in \mathbb{R} \backslash \mathbb{Q}$ betrachten wir zwei Fälle:
+
+Fall 1: ($a \geq 1$)
+
+Sei $x \in \mathbb{R}$ gegeben.
+
+
+$M(a, x) = { a^q | q \in \mathbb{Q} : q < x }$
+
+Diese Menge ist von oben beschränkt durch $a^{\lfloor x \rfloor + 1}$ % Ganzzahliger Anteil von x%
+
+Nach Satz 4 besitzt $M(a, x)$ ein Supremum, und wir definieren 
+$$a^x = \textrm{sup } M(a,x)$$
+
+Für $0 < a < 1$:
+
+$$a^x := \left( \frac{1}{a} \right) ^{-x}$$
+
+
+\end{document}
