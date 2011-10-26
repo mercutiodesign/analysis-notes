@@ -1,0 +1,189 @@
+\documentclass[12pt,a4paper,leqno]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{ulsy}
+\usepackage[german]{babel}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[L]{Übungsaufgaben Analysis}
+\fancyhead[C]{Martin Dreher}
+\fancyhead[R]{26. September 2011}
+\fancyfoot[C] {\thepage}
+
+\author{Martin Dreher}
+
+\begin{document}
+\section{Übungsaufgaben}
+
+
+\begin{enumerate}
+\setcounter{enumi}{28}
+\item	Beweisen Sie: Für $x,y\in \mathbb{R}$ gilt $|x+y|= |x|+|y|$ genau dann, wenn $x\cdot y \ge 0$.
+\item	Lösen Sie folgende Ungleichungen für $x\in \mathbb{R}$:
+		\begin{enumerate}
+			\item[a)] $|x-2| \ge 10$
+			\item[b)] $|x| > |x+1|$
+			\item[c)] $|2x-1|<|x-1|$
+		\end{enumerate}
+\item	Beweisen Sie für alle $n \in \mathbb{N}$ die folgenden Aussagen:
+		\begin{enumerate}
+			\item[a)] $1^2 + 2^2 + 3^2 + \dots + n^2 = \frac {n (n+1)(2n+1)} 6$.
+			\item[b)] ${n \choose 0} + {n \choose 1} + {n \choose 2} + \dots + {n \choose n} = 2^n$
+		\end{enumerate}
+	Im Teil (b) sind die {\em Binomialkoeffizienten} definiert als ${n \choose k} = \frac {n! }{k! (n-k)! }$, wobei man $0! :=1$ und für $n \ge 1$ rekursiv $n! :=(n-1)! \cdot n$ setzt, d.h. $n! $ ist das Produkt aller natürlichen Zahlen $\le n$.
+\item	Beweisen Sie für alle $n \in \mathbb{N}$ die folgende Ungleichung:
+	$$
+	1 + \frac 1 {\sqrt{2}} + \frac 1 {\sqrt{3}} + \dots + \frac 1 {\sqrt{n}} > 2\left(\sqrt{n+1}-1\right).
+	$$
+\item	Besitzt die Menge $M= \{ \frac m n \,: \, m,n \in \mathbb{N}, 0<m<n \}$ ein größtes oder ein kleinstes Element? Beweisen Sie Ihre Behauptung!
+\end{enumerate}
+
+\section{Lösungen}
+
+
+\begin{enumerate}
+\setcounter{enumi}{28}
+
+\item %Frage 29%
+\begin{description}
+\item[Behauptung:] Für $x,y\in \mathbb{R}$ gilt 
+	\begin{equation*}
+	|x+y|= |x|+|y| \quad \Leftrightarrow \quad x\cdot y \ge 0
+	\end{equation*}		
+\item[Beweis:] \hfill \\
+	Es wird eine Fallunterscheidung getroffen.
+	
+	Fall 1: Seien $x, y \geq 0$, so kann man schreiben
+	\begin{displaymath}
+		|x + y| = x + y = |x| + |y|
+	\end{displaymath}
+	
+	
+	Fall 2: Seien $x, y < 0$, so kann man schreiben
+	\begin{displaymath}
+		|x + y| = -x + -y = |x| + |y|
+	\end{displaymath}
+	
+	Fall 3: Wenn $x\cdot y<0$ so gilt $|x+y| = |x|+|y|$ \textbf{nicht}. \\
+	\textbf{Beweis}: O.B.d.A. sei $x < 0$ und $y > 0$, so gilt
+	\begin{displaymath}
+		|x+y| = - (x+y) \neq -x + y = |x| + |y| 
+	\end{displaymath}
+	
+	\begin{flushright}$\square$\end{flushright}
+	
+	
+
+\end{description}
+\item %Frage 30% 
+
+
+
+\begin{enumerate}
+\item[a)] 
+	\begin{displaymath}
+	\begin{array}{l l}
+	|x-2| \geq 10 &\Leftrightarrow \left\{
+	\begin{array}{l l}
+		x \geq 10 & \textrm{falls } x \geq 2 \\[6pt]
+		x \leq -12 & \textrm{falls } x < 2 \\
+	\end{array}\right.  \\ 
+	\hfill \\
+	& \Leftrightarrow x \leq -12 \vee x \geq 10 
+	\end{array}
+	\end{displaymath}
+\item[b)] 
+
+	\begin{displaymath}
+	\begin{array}{l l}
+		|x| > |x+1| &\Leftrightarrow  \left\{
+	\begin{array}{l l}
+		  0 > 1 \textrm{\blitza} & \textrm{für } x \geq 0 \\[6pt]
+		  x < -\frac{1}{2} & \textrm{für } -1 \leq x < 0 \\[6pt]
+		  0 < 1 & \textrm{für } x < -1
+	\end{array}\right.  \\ 
+	\hfill \\
+	& \Leftrightarrow x <  -\frac{1}{2} 
+	\end{array}
+	\end{displaymath}
+	
+\item[c)] 
+	\begin{displaymath}
+	\begin{array}{l l}
+		|2x-1|<|x-1| &\Leftrightarrow  \left\{
+	\begin{array}{l l}
+		x < 0 & \textrm{für } x \geq 1 \\[6pt]
+		x < \frac{2}{3}  & \textrm{für } \frac{1}{2} \leq x < 1 \\[6pt]
+		x > 0  & \textrm{für } x < \frac{1}{2}
+	\end{array}\right.  \\ 
+	\hfill \\
+	& \Leftrightarrow \frac{1}{2} \leq x < \frac{2}{3}
+	\end{array}
+	\end{displaymath}
+\end{enumerate}
+
+\item %Frage 31% 
+
+
+\begin{enumerate}
+\item[a)] \hfill
+
+
+\begin{description}
+\item[Beh:] $$1^2 + 2^2 + 3^2 + \ldots + n^2 = \frac {n (n+1)(2n+1)} 6$$
+\item[Bew:] Die Behauptung wird durch vollständige Induktion über $n$ gezeigt.
+
+\textbf{Ind.-Ansatz: }
+$$n = 1 : \quad 1 ^2 = 1 = \frac{1\cdot 2\cdot 3}{6}$$
+
+\textbf{Ind.-Beh:}
+Für $n>1$ gelte:
+$$1^2+2^2+\ldots+ (n-1)^2 = \frac{(n-1)(n)(2n -1)}{6}$$
+
+
+\textbf{Ind.-Schritt: }
+Aus der Gültigket für $n-1$ wird auf die Gültigkeit für $n$ geschlossen, für alle $n > 1$:
+\begin{align*}
+1^2+2^2+\ldots+ (n-1)^2 + n^2 &=  \frac{(n-1)(n)(2n -1)}{6} + n^2\\[12pt]
+\frac{n(n-1)(2n-1)+6n^2}{6} &= \frac{(2n^3-n^2-2n^2+n)+6n^2}{6} \\[12pt]
+\frac{2n^3+3n^2+n}{6} &=\frac{n(n+1)(2n+1)}{6}
+\end{align*}
+\begin{flushright}$\square$\\[12pt]\end{flushright}
+	
+\end{description}
+
+			
+\item[b)] 
+
+\begin{description}
+\item[Beh:] $${n \choose 0} + {n \choose 1} + {n \choose 2} + \dots + {n \choose n} = 2^n$$
+\item[Bew:] Die Behauptung wird durch vollständige Induktion über $n$ gezeigt.
+
+\textbf{Ind.-Ansatz: }
+$$n = 0 : \quad {0 \choose 0} = \frac{0!}{0! \cdot 0!} = 1 = 2^0$$
+
+\textbf{Ind.-Beh:}
+Es gelte:
+$${n \choose 0} + {n \choose 1} + {n \choose 2} + \dots + {n \choose n} = 2^n $$
+
+\textbf{Ind.-Schritt: }
+Aus der Gültigket für $n$ wird auf die Gültigkeit für $n+1$ geschlossen:
+\begin{align*}
+&{n + 1 \choose 0} + {n + 1 \choose 1} + {n + 1 \choose 2} + \dots + {n+1 \choose n-1} + {n + 1 \choose n + 1} = 2^n + {n + 1 \choose n + 1} \\[12pt]
+ & 2^{n-1} + \frac {n!}{n!} = 2^{n+1} 
+\end{align*}
+
+\end{description}
+
+\end{enumerate}
+
+
+\end{enumerate}
+
+\end{document}

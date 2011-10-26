@@ -1,0 +1,174 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage[leqno]{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{ulsy}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[L]{Analysis I}
+\fancyhead[R]{21. September  2011}
+\fancyfoot[C]{\thepage}
+
+\author{ Rüdiger Brecht }
+
+\begin{document}
+\part*{Analysis }
+
+
+\subsection*{Satz 2:} Für l,k $ \in \mathbb{N} $ gilt $\sqrt[n]{k}\in \mathbb{Q} \Leftrightarrow \sqrt[l]{k}\in \mathbb{N}$
+
+
+\begin{description}
+\item[Bew:] $"\Leftarrow "$ offensichtlich
+
+$" \Rightarrow "$ ist $\sqrt[l]{k} \in \mathbb{Q}$ so existiert m,n $\in \mathbb{N}$ mit 
+$\sqrt[l]{k}=\frac{m}{n}$ 
+\\
+\\
+o.B.d.A gilt $ggT(m,n)=1$ 
+
+wir wollen zeigen n=1
+\\
+\\
+indirekter Beweis: Wir nehmen an $n>1$
+\\
+\\
+$\Rightarrow \quad \exists$Primzahl $q$ mit $q|n$
+
+$\sqrt[l]{k}=\frac{m}{n}\Rightarrow n^{l}k=m^{l}
+q|n$ $\Rightarrow$ $q|n^{l}k = m^{l}$
+
+$\Rightarrow q|n$ und $q|m $ \blitze zu $ggT(m,n)=1$
+
+$\Rightarrow n=1$
+
+$\Rightarrow \sqrt[l]{K}=m \in \mathbb{N} $
+\begin{flushright} $ \square $ \end{flushright}
+\end{description}
+---
+\subsection*{Satz 3:} Für jede reelle Zahl $x>0$ und jedes $n\in \mathbb{N}$ existiert genau eine reelle Zahl $y>0$ mit $y^{n}=x$.
+Diese bezeichnen wir mit $\sqrt[n]{x}=x^{\frac{1}{n}}$
+
+\begin{description}
+\item[Bew:] Zunächst bemerken wir:
+
+aus $0<y_{1}<y_{2}$ folgt, dass $y_{1}^{n}<y_{2}^{n}$
+$\Rightarrow$ es gibt höchstens eine Lösung der Gleichung $y^{n}=x$
+
+Wir zeigen nur noch die Existenz
+\subsection*{Schritt 1:} Für alle $0<a<b$ und alle $n \in \mathbb{N}$ gilt
+\renewcommand{\theequation}{*}
+\begin{equation}
+b^{n}-a^{n}<n(b-a)b^{n-1}
+\end{equation}
+\end{description}
+\begin{description}
+\item[Bew:] $$b^{n}-a^{n}=(b-a)(b^{n-1}+\underbrace{b^{n-2}a}_{<b^{n-1}}+\cdots+\underbrace{ba^{n-2}}_{<b^{n-1}}+\underbrace{a^{n-1}}_{b^{n-1}})$$ 
+
+$$<n(b-a)b^{n-1}$$
+\begin{flushright} $ \square $ \end{flushright}
+\end{description}
+\subsection*{Schritt 2:} Die Menge
+$A:=\lbrace t\in \mathbb{R}:t\leq0 $ oder $ t>0 $ und $t^{n}<\overbrace{x}^{Satz 3}\rbrace$
+hat kein größtes Element
+\begin{description}
+\item[Bew:] (a) A enthält positive Zahlen, zum Beispiel $t=\frac{x}{x+1}$
+
+denn $0<t<1$ 
+
+Falls also A ein größtes Element hätte, so wäre dies positiv.
+
+Sei nun $t_{0}>0$ ein Element von A 
+
+$\Rightarrow x-t_{0}^{n}>0 \Rightarrow \frac{x-t_{0}^{n}}{n(t_{0}^{n}+1)^{n-1}}>0$  
+
+Wir wählen nun $h \in\mathbb{R}$ mit $0<h<1$
+$$ h<\frac{x-t_{0}^{n}}{n(t_0^n+1)^{n-1}}$$
+z.B. $h=min(\frac{1}{2},\frac{1}{2} \frac{x-t_{0}^{n}}{n(t_{0}^{n}+1)^{n-1}} )$
+
+Wir betrachten jetzt $t_{1}:=t_{0}+h$
+$$ t_{1}^{n}-t_{0}^{n}\overbrace{<}^{(*)}n h (t_{0}+h)^{n-1}<n h (t_{0}+1)^{n-1}<x-t_{0^{n}}$$
+
+$\Rightarrow t_{0}^{n}<x \Rightarrow t_{1} \in A$
+
+$\Rightarrow t_{0}$ war nicht größtes Element von A
+
+Weil dies für jedes positive Element von A gilt, hat A kein größtes Element. 
+\end{description}
+---
+Nach Schritt 2 hat A kein größtes Element $\Rightarrow$ B hat  kein kleinstes Element. Wir nennen dies y.
+
+\begin{description}
+\item[Beh:] $y^{n}=x$. Wäre $y^{n}\neq x$ , so müsste $y^n>x$ gelten, und $y$ wäre kleinstes Element von C \blitze zu Schritt 3 $\Rightarrow y^n=x$
+\begin{flushright}$ \square $ \end{flushright} 
+\end{description}
+\begin{description}
+\item[Def:] Sei $ A\subseteq \mathbb{R}$
+
+A heißt \underline{von oben beschränkt}, falls es eine Zahl $M$ gibt mit $\forall a \in A:a\leq M$ 
+
+A heißt \underline{von unten beschränkt}, falls es eine Zahl $m$ gibt mit $\forall a \in A:m\leq a$
+A heißt \underline{beschränkt}, falls A von oben und unten beschränkt ist.
+\end{description}
+
+\subsection*{Satz 4:} (1)
+Sei $A\subseteq \mathbb{R}$ eine nicht leere von oben beschränkte Teilmenge.\\ Dann existiert genau eine Zahl $M_{0}$ mit folgenden Eigenschaften.\\
+ 
+(i) $\forall a \ in A : a\leq M_{0}(M_{0}ist obere Schranke)$\\
+
+(ii) $\forall \varepsilon>0\quad \exists a\in A: M_{0}-\varepsilon<a$\\
+
+Diese Zahl $M_{0}$ nennen wir das Supremum von A, $M_{0}= Suo(A)$\\
+
+\begin{flushleft}
+(2) Sei A eine nicht leere von unten beschränkte Teilmenge.
+\end{flushleft} 
+
+ Dann existiert eine eindeutige Zahl $m_{0}\in \mathbb{R}$ mit\\
+
+(i)$\forall a \ in A : m_{0}\leq(m_{0}ist obere Schranke)$ \\
+
+(ii)$\forall \varepsilon>0\quad \exists a\in A: m_{0}+\varepsilon>a$\\
+
+Diese Zahl nennt man das Infimum von A, $m_{0}= inf(a)$
+
+---
+
+
+Also ist $M_{0}$ das kleinste Element von X.\\
+
+$\Rightarrow M_{0}$ ist obere Schranke von A, d.h. es gilt (i)\\
+
+DA für jedes $\varepsilon > 0$  die Zahl $M_{0}-\varepsilon\notin X $ folgt:\\
+
+$\forall \varepsilon >0 \quad \exists a \in A :M_{0}-\varepsilon <a$ d.h. Eigenschaft (ii)
+
+$M_{0}$ ist eindeutig:\\
+
+Wären $M_{0}$ und $M_{1}$ zwei Zahlen mit den Eigenschaften (i) und (ii)\\
+
+$\Rightarrow M_{0} $und$ M_{1}$ wären kleinste Schranken von A\\
+
+$\Rightarrow M_{0} \leq M_{1}$und$M_{1}\leq M_{0}\Rightarrow M_{0}=M_{1}$
+\begin{flushright}$ \square $ \end{flushright}
+
+Potenzen $a^{x}$: Sei $a0>$
+
+Für $k\in \mathbb{Z}$ haben wir $a^{k}$ bereits definiert
+
+ist $x=\frac{m}{n}>0$ , so definieren wir 
+$$a^{x}:=\sqrt[n]{a^{m}}$$
+Für $x\in \mathbb{Q},x<0$ definieren wir
+$$a^{x}=\frac{1}{a^{-x}}$$
+Dann gelten die üblichen Regeln 
+$$a^{x_{1}+x_{2}}=a^{x_{1}}a^{x_{2}}$$
+$$(a^{x_{1}})^{x2}=a^{x_{1}x_{2}}$$
+für $x_{1},x_{2} \in \mathbb{Q}$   
+ 
+
+
+\end{document}
