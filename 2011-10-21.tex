@@ -11,16 +11,312 @@
 \fancyhead{}
 \fancyfoot{}
 \fancyhead[L]{Analysis I}
-\fancyhead[R]{21. September  2011}
+\fancyhead[R]{21. Oktober  2011}
 \fancyfoot[C]{\thepage}
 
-\author{Rüdiger BRecht}
+\author{Rüdiger Brecht, Martin Dreher}
 
 \begin{document}
-\part*{Analysis 1}
-\ldots
-Satz 2: Für l,k \[ \in \mathbb{N} gilt
-
-
-
+  \part*{Analysis 1}
+  
+  % Rüdiger %
+  
+  \section*{Satz 2:} 
+  
+  Für l,k $ \in \mathbb{N} $ gilt $\sqrt[n]{k}\in \mathbb{Q} \Leftrightarrow \sqrt[l]{k}\in \mathbb{N}$
+  
+  
+  \begin{description}
+    \item[Bew:] $"\Leftarrow "$ offensichtlich.
+      
+      $" \Rightarrow "$ ist $\sqrt[l]{k} \in \mathbb{Q}$ so existiert $m,n \in \mathbb{N}$ mit $\sqrt[l]{k}=\frac{m}{n}$ 
+      
+      
+      o.B.d.A gilt $ggT(m,n)=1$ 
+      
+      Wir wollen zeigen $n=1$.
+      
+      Indirekter Beweis: Wir nehmen an $n>1$
+      
+      $\Rightarrow \quad \exists$ Primzahl $q$ mit $q|n$
+      
+      $\sqrt[l]{k}=\frac{m}{n}\Rightarrow n^{l}k=m^{l}
+      q|n$ $\Rightarrow$ $q|n^{l}k = m^{l}$
+      
+      $\Rightarrow q|n$ und $q|m $ \blitze zu $ggT(m,n)=1$
+      
+      $\Rightarrow n=1$
+      
+      $\Rightarrow \sqrt[l]{K}=m \in \mathbb{N} $
+      \begin{flushright} $ \square $ \end{flushright}
+  \end{description}
+  
+  % Martin %
+  
+  \subsubsection*{Reelle Zahlen}
+  
+  (Intuitiv: Jeder Punkt liegt auf der Geraden)
+  
+  \begin{description}
+    \item[Def:] Ein \underline{dedekindscher Schnitt} in den reellen Zahlen ist eine Zerlegung $\mathbb{R} = A \cup B$ in zwei nicht leere Teilmengen, so dass jede Zahl $a \in A$ kleiner ist als jede Zahl $b \in B$.
+  \end{description}
+  
+  \subsubsection*{Stetigkeitseigenschaft der reellen Zahlen \\ (Dedekindsches Schnittaxiom)}
+  
+  Ist $\mathbb{R} = A \cup B$ ein dedekindscher Schnitt, so besitzt entweder $A$  eine größte Zahl oder $B$ besitzt eine kleinste Zahl. 
+  
+  
+  Anm: A und B sind disjunkt, da 
+  $$\mathbb{R} = A \cup B \textrm{(ein D-Schnitt)} \Leftrightarrow \forall a \in A \quad \forall b \in B : a < b$$
+  
+  
+  % Rüdiger %
+  
+  \section*{Satz 3:} Für jede reelle Zahl $x>0$ und jedes $n\in \mathbb{N}$ existiert genau eine reelle Zahl $y>0$ mit $y^{n}=x$.
+  Diese bezeichnen wir mit $\sqrt[n]{x}=x^{\frac{1}{n}}$
+  
+  \begin{description}
+    \item[Bew:] Zunächst bemerken wir:
+      
+      aus $0<y_1<y_2$ folgt, dass $y_1^{n}<y_2^{n}$
+      $\Rightarrow$ es gibt höchstens eine Lösung der Gleichung $y^{n}=x$.
+      
+      Wir zeigen nur noch die Existenz.
+  \end{description}
+  
+  \subsection*{Schritt 1:} Für alle $0<a<b$ und alle $n \in \mathbb{N}$ gilt
+  \renewcommand{\theequation}{*}
+  \begin{equation}
+    b^{n}-a^{n}<n(b-a)b^{n-1}
+  \end{equation}
+  
+  \begin{description}
+    \item[Bew:] $$b^{n}-a^{n}=(b-a)(b^{n-1}+\underbrace{b^{n-2}a}_{<b^{n-1}}+\cdots+\underbrace{ba^{n-2}}_{<b^{n-1}}+\underbrace{a^{n-1}}_{b^{n-1}})$$ 
+      
+      $$<n(b-a)b^{n-1}$$
+      \begin{flushright} $ \square $ \end{flushright}
+  \end{description}
+  
+  
+  \subsection*{Schritt 2:} 
+  Die Menge $A:=\lbrace t\in \mathbb{R}:t\leq0 $ oder $ t>0 $ und $t^{n}<\overbrace{x}^{\textrm{Satz 3}}\rbrace$
+  hat kein größtes Element.
+  
+  \begin{description}
+    \item[Bew:] (a) A enthält positive Zahlen, zum Beispiel $t=\frac{x}{x+1}$,
+      
+      denn $0<t<1$.
+      
+      Falls also A ein größtes Element hätte, so wäre dies positiv.
+      
+      Sei nun $t_0>0$ ein Element von A 
+      
+      $\Rightarrow x-t_0^{n}>0 \Rightarrow \frac{x-t_0^{n}}{n(t_0^{n}+1)^{n-1}}>0$  
+      
+      Wir wählen nun $h \in\mathbb{R}$ mit $0<h<1$
+      $$ h<\frac{x-t_0^{n}}{n(t_0^n+1)^{n-1}}$$
+      z.B. $$h=\textrm{min}\left(\frac{1}{2},\frac{1}{2} \cdot \frac{x-t_0^{n}}{n(t_0^{n}+1)^{n-1}} \right)$$
+      
+      Wir betrachten jetzt $t_1:=t_0+h$
+      $$ t_1^{n}-t_0^{n}\overbrace{<}^{(*)}n h (t_0+h)^{n-1}<n h (t_0+1)^{n-1}<x-t_{0^{n}}$$
+      
+      $\Rightarrow t_0^{n}<x \Rightarrow t_1 \in A$
+      
+      $\Rightarrow t_0$ war nicht größtes Element von A
+      
+      Weil dies für jedes positive Element von A gilt, hat A kein größtes Element. 
+  \end{description}
+  
+  % Martin %
+  
+  \subsection*{Schritt 3}
+  
+  Die Menge 
+  \begin{displaymath}
+    C := { t \in \mathbb{R}: t > 0, t^n>x}
+  \end{displaymath}
+  hat kein kleinstes Element.
+  
+  \begin{description}
+    \item[Bew:] Sei $t_0 \in C$ beliebig. Wir definieren 
+      
+      $$h := \frac{t_0^n-x}{n \cdot t_0^{n-1}} < \frac{t_0^n}{nt_0^{n-1}} = \frac{t_0}{n} \leq t_0$$
+      
+      
+      Sei $t_1 := t_0 - h > 0$
+      
+      Außerdem gilt: 
+      $$t_0^n - t_1^n \underbrace{<}_{\textrm{siehe (*)}} n \cdot h \cdot t_0^{n-1} = t_0^n - x \Rightarrow t_1^n > x \Rightarrow t_1^n \in B$$
+      
+  \end{description}
+  
+  \begin{flushright} $\square$ \end{flushright}
+  
+  \subsection*{Schritt 4:}
+  
+  Wir beweisen die Existenz von $y > 0$ mit $y^n = x$.
+  
+  \begin{description}
+    
+    \item[Bew:] Sei $A$ wie im Schritt 2 und sei $B = \mathbb{R} \backslash A$.
+      
+      Aus der Definition von A folgt das 
+      $$ B = { t \in \mathbb{R} : t > 0 \textrm{ und } t^n \geq x } $$
+      
+      $A \cup B$ ist ein dedekindscher Schnitt: gäbe es ein $a \in A$ und $b \in B$ mit $a \geq b \Rightarrow a > 0$. Dann folgt aus $a \geq b$ aber $a^n \geq b^n$. \blitze{} zu $a^n < x$ und $b^n \geq x$ 
+      
+      $ \Rightarrow A \cup B$  ist ein dedekindscher Schnitt.
+      
+      Nach Schritt 2 hat $A$ kein größtes Element $\Rightarrow B$ hat ein kleinstes Element. Wir nennen dieses $y$.
+      
+    \item[Beh:] $y^n = x$. Wäre $y^n \neq x$, so müsste $y^n > x$ gelten, und $y$ wäre kleinstes Element von $C$. \blitze zu Schritt 3 $\Rightarrow y^n = x$
+      \begin{flushright} $ \square $ \end{flushright}
+  \end{description}
+  
+  % Rüdiger %
+  
+  Nach Schritt 2 hat $A$ kein größtes Element $\Rightarrow B$ hat  kein kleinstes Element. Wir nennen dies $y$.
+  
+  \begin{description}
+    \item[Beh:] $y^{n}=x$. Wäre $y^{n}\neq x$ , so müsste $y^n>x$ gelten, und $y$ wäre kleinstes Element von $C$ \blitze zu Schritt 3. $\Rightarrow y^n=x$
+      \begin{flushright}$ \square $ \end{flushright} 
+  \end{description}
+  \begin{description}
+    \item[Def:] Sei $A\subseteq \mathbb{R}$
+      
+      A heißt \underline{von oben beschränkt}, falls es eine Zahl $M$ gibt mit $$\forall a \in A:a\leq M$$ 
+      
+      A heißt \underline{von unten beschränkt}, falls es eine Zahl $m$ gibt mit $$\forall a \in A:m\leq a$$
+      A heißt \underline{beschränkt}, falls $A$ von oben und unten beschränkt ist.
+  \end{description}
+  
+  \section*{Satz 4:} 
+  
+  \renewcommand{\theenumi}{(\arabic{enumi})}
+  \renewcommand{\labelenumi}{\theenumi}
+  \begin{enumerate}
+    \item Sei $A\subseteq\mathbb{R}$ eine nicht leere von oben beschränkte Teilmenge.
+      
+      Dann existiert genau eine Zahl $M_0$ mit folgenden Eigenschaften:
+      
+      \renewcommand{\theenumii}{(\roman{enumii})}
+      \renewcommand{\labelenumii}{\theenumii}
+      \begin{enumerate}
+        \item $\forall a \in A : a\leq M_0 \,(M_0 \textrm{ ist obere Schranke})$
+        \item $\forall \varepsilon>0\quad \exists a\in A: M_0-\varepsilon<a$
+      \end{enumerate}
+      
+      Diese Zahl $M_0$ nennen wir das Supremum von A, $M_0= \textrm{sup}(A)$.
+    \item Sei A eine nicht leere von unten beschränkte Teilmenge.
+      
+      Dann existiert eine eindeutige Zahl $m_0\in \mathbb{R}$ mit
+      
+      \begin{enumerate}
+        \item $\forall a \in A : m_0\leq a \,(m_0 \textrm{ ist untere Schranke})$
+        \item $\forall \varepsilon>0\quad \exists a\in A: m_0+\varepsilon>a$
+      \end{enumerate}
+      
+      Diese Zahl nennt man das Infimum von A, $m_0=\textrm{inf}(A)$.
+      
+  \end{enumerate}
+  
+  % Martin %
+  
+  \subsubsection*{Beweis von Satz 4}
+  
+  \begin{description}
+    
+    \item[Bew:] 
+      
+      Wir beweisen nur (1), da (2) völlig analog bewiesen wird.
+      
+      Sei also $A$ nicht leer und von oben beschränkt.
+      
+      Wir betrachten $X:= { M \in \mathbb{R} : \forall a \in A : a \leq M }$
+      
+      (Notiz: $X \neq \emptyset$ nach Voraussetzung.)
+      
+      Sei $Y := \mathbb{R} \backslash X$. Dann gilt $Y \neq \emptyset$, da $a - 1 \in Y$ für jedes $a \in A$.
+      Außerdem gilt: 
+      \begin{itemize}
+        \item[(a)] $\mathbb{R} = Y \cup X$
+        \item[(b)] für $y \in Y$ und $x \in X$ gilt stets $y < x$
+      \end{itemize}
+      
+      Ist nämlich $y \in Y$, so ist $y$ \underline{nicht} obere Schranke von $A$
+      
+      $$
+      \left.
+      \begin{array}{l}
+        \Rightarrow \exists a \in A \quad y < a \\
+        \textrm{weil } x \in X \quad a \leq x
+      \end{array}
+      \right\} \Rightarrow y < x. $$
+      
+      (a), (b) $\Rightarrow \mathbb{R} = Y \cup X$ ist ein dedekindscher Schnitt.
+      
+      Sei $M_0$ das kleinste Element von $X$ oder das größte Element von $Y$.
+      
+    \item[Beh:] $M_0$ ist nicht größtes Element von $Y$.
+      
+      Andernfalls wäre $M_0 \in Y \Rightarrow \exists a \in A : M_0 < a$  und für $M_1 = \frac{M_0 + a}{2}$ gilt $M_0 < M_1 < a$ \blitze zu $M_0$ ist größtes Element von $Y$.
+      
+      % Rüdiger %
+      
+      Also ist $M_0$ das kleinste Element von X.\\
+      
+      $\Rightarrow M_0$ ist obere Schranke von A, d.h. es gilt (i)\\
+      
+      DA für jedes $\varepsilon > 0$  die Zahl $M_0-\varepsilon\notin X $ folgt:\\
+      
+      $\forall \varepsilon >0 \quad \exists a \in A :M_0-\varepsilon <a$ d.h. Eigenschaft (ii)
+      
+      $M_0$ ist eindeutig:\\
+      
+      Wären $M_0$ und $M_1$ zwei Zahlen mit den Eigenschaften (i) und (ii)\\
+      
+      $\Rightarrow M_0 $und$ M_1$ wären kleinste Schranken von A\\
+      
+      $\Rightarrow M_0 \leq M_1$ und $M_1\leq M_0\Rightarrow M_0=M_1$
+      \begin{flushright}$ \square $ \end{flushright}
+      
+  \end{description}
+  
+  \subsubsection*{Potenzen $\mathbf{a^x}$:} Sei $a > 0$
+  
+  Für $k\in \mathbb{Z}$ haben wir $a^{k}$ bereits definiert
+  
+  ist $x=\frac{m}{n}>0$ , so definieren wir 
+  $$a^{x}:=\sqrt[n]{a^{m}}$$
+  Für $x\in \mathbb{Q},x<0$ definieren wir
+  $$a^{x}=\frac{1}{a^{-x}}$$
+  Dann gelten die üblichen Regeln 
+  $$a^{x_1+x_2}=a^{x_1}a^{x_2}$$
+  $$(a^{x_1})^{x2}=a^{x_1x_2}$$
+  für $x_1,x_2 \in \mathbb{Q}$.
+  
+  
+  \hfill \\
+  % Martin %
+  
+  Für $x \in \mathbb{R} \backslash \mathbb{Q}$ betrachten wir zwei Fälle:
+  
+  \begin{description}
+    \item[Fall 1:] ($a \geq 1$)
+      
+      Sei $x \in \mathbb{R}$ gegeben.
+      
+      
+      $$M(a, x) = { a^q | q \in \mathbb{Q} : q < x }$$
+      
+      Diese Menge ist von oben beschränkt durch $a^{\lfloor x \rfloor + 1}$ % Ganzzahliger Anteil von x%
+      
+      Nach Satz 4 besitzt $M(a, x)$ ein Supremum, und wir definieren 
+      $$a^x = \textrm{sup } M(a,x)$$
+      
+      Für $0 < a < 1$:
+      
+      $$a^x := \left( \frac{1}{a} \right) ^{-x}$$ 
+      
+  \end{description}
 \end{document}

@@ -1,0 +1,308 @@
+\documentclass[12pt,a4paper,leqno]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[L]{Analysis I}
+\fancyhead[R]{19. Oktober 2011}
+\fancyfoot[C] {\thepage}
+
+\author{Martin Dreher}
+
+\begin{document}
+  \part*{Vorlesung WS 2011 / 2012: Analysis I}
+  
+  \section{Reelle und komplexe Zahlen}
+  
+  \begin{description}
+    \item[Notation:]
+      \begin{align*}
+        \mathbb{N} &\textrm{ -- Menge der natürlichen Zahlen}\\
+        \mathbb{Z} &\textrm{ -- Menge der ganzen Zahlen}\\
+        \mathbb{Q} &\textrm{ -- Menge der rationalen Zahlen}\\
+        \mathbb{R} &\textrm{ -- Menge der reellen Zahlen}
+      \end{align*}
+      
+    \item[Frage:] Welche Eigenschaften charakterisieren die reellen Zahlen?
+      \subsection*{Grundrechenarten:} 
+      \begin{description}
+        \item[Addition:] aus $x, y \in \mathbb{R}$ bilden wir $x+y\in \mathbb{R}$
+          \begin{itemize}
+            \item[(A1)] Kommutativgesetz: $x + y = y + x$
+            \item[(A2)] Assoziativgesetz: $x + (y + z) = (x + y) + z$
+            \item[(A3)] neutrales Element: $\exists 0 \in \mathbb{R} : \forall x \in \mathbb{R} : x + 0 = x = 0 + x$
+            \item[(A4)] inverse Elemente: $\forall x, y \in \mathbb{R} : \exists z \in \mathbb{R} : x + z = y = z + x$ \begin{flushright}
+                ($z = y - x$)
+              \end{flushright}
+          \end{itemize}
+          
+        \item[Multiplikation:] aus $x, y \in \mathbb{R}$ bilden wir $x\cdot y\in \mathbb{R}$
+          \begin{itemize}
+            \item[(M1)] Kommutativgesetz: $x \cdot y = y \cdot x$
+            \item[(M2)] Assoziativgesetz: $x \cdot (y \cdot z) = (x \cdot y) \cdot z$
+            \item[(M3)] neutrales Element: $\exists 1 \in \mathbb{R} : \forall x \in \mathbb{R} : x \cdot 1 = x = 1 \cdot x$
+            \item[(M4)] inverse Elemente: $\forall x \neq 0 : \forall y \in \mathbb{R} : \exists z \in \mathbb{R} : x \cdot z = y = z \cdot x$ \begin{flushright}
+                ($z = \frac{y}{x}$)
+              \end{flushright}
+          \end{itemize}
+      \end{description}
+      
+    \item Es gilt außerdem das \underline{Distributivgesetz}:
+      \begin{itemize}
+        \item[(D)] $\forall x, y, z \in \mathbb{R} : x \cdot (y + z) = x \cdot y + x \cdot z$
+      \end{itemize}
+      
+    \item Weiterhin ist in der Menge $\mathbb{R}$ eine Teilmenge $\mathbb{R}_+$ ausgezeichnet, mit folgenden Eigenschaften:
+      \begin{itemize}
+        \item[(O1)] Für alle $x \in \mathbb{R}$ gilt genau eine der Aussagen: \\ 
+          $x \in \mathbb{R}_+ \textrm{ oder } x=0  \textrm{ oder } -x \in  \mathbb{R}_+$
+        \item[(O2)] Aus  $x \in \mathbb{R}_+ \textrm{ und } y \in \mathbb{R}_+ \textrm{ folgt } x + y \in \mathbb{R}_+$
+        \item[(O3)] Aus $x \in \mathbb{R}_+ \textrm{ und } y \in \mathbb{R}_+ \textrm{ folgt } x \cdot y \in \mathbb{R}_+$.
+      \end{itemize}
+      
+    \item[Bem:] Eine Menge $M$ mit Operationen $+$ und $ \cdot $ sowie eine ausgez. Teilmenge 
+      $M_+$ mit den Eigenschaften (A1) -- (A4), (M1) -- (M4), D und (O1) -- (O3) heißt \underline{angeordneter Körper}. \\
+      
+  \end{description}
+  \subsection*{Die Relation ,,$\mathbf{<}$"}
+  \begin{description}
+    \item[Def:] Wir sagen 
+      $\begin{array}{l l}
+        x < y,    & \textrm{falls } y - x \in \mathbb{R}_+ \\
+        x \leq y,   & \textrm{falls } y - x \in \mathbb{R}_+ \cup \lbrace 0 \rbrace
+      \end{array}$.
+      
+      Die Relation $<$ hat folgende Eigenschaften:
+      
+      \renewcommand{\theenumi}{(\roman{enumi})}
+      \begin{enumerate}
+        \item Aus $x < y$ und $y < z$ folgt $x < z$.
+        \item Für alle $a \in \mathbb{R}$ gilt: aus $x < y$ folgt $x + a < y + a$.
+        \item Aus $x < y$ folgt $-x > -y$.
+        \item Aus $a > 0$ und $x < y$ folgt $ax < ay$.
+        \item Aus $a < 0$ und $x < y$ folgt $ax > ay$.
+        \item Für alle $x \neq 0$ gilt $x^2 = x  \cdot  x > 0$
+        \item Aus $x > 0$ folgt $x^{-1} > 0$
+        \item Aus $0 < x < y$ folgt $x^{-1} > y^{-1}$
+      \end{enumerate}
+      Beweis von (vii): $(x^{-1})^{2}=x^{-2} > 0$ (nach (vi)) $ x(x^{-2})>0$
+      
+  \end{description}
+  \subsection*{Betrag einer reellen Zahl}
+  
+  Sei $x \in \mathbb{R}$.
+  
+  Wir definieren 
+  \begin{equation*}
+    |x| = 
+    \begin{cases}
+      x & \textrm{falls } x \geq 0\\
+      -x & \textrm{falls } x < 0\\
+    \end{cases}
+  \end{equation*}
+  
+  
+  Somit gilt für alle $x \in \mathbb{R}: |x| \geq 0$.
+  
+  Es gelten:
+  \renewcommand{\theequation}{B\arabic{equation}}
+  \setcounter{equation}{0}
+  \begin{align}
+    \label{b1} |x \cdot y| &= |x| \cdot |y| \\
+    \label{b2} |x+y| &\leq |x|+|y| \\  
+    \label{b3} \big||x|-|y|\big| &\leq |x+y|
+  \end{align}
+  
+  \begin{description}
+    
+    \item[Beweis:] \hfill
+      
+      \begin{itemize}
+        \item[] Zu \eqref{b1}: \\
+          Für $x, y \geq 0$ folgt die Aussage direkt aus der Def. i.a. gilt $x = \pm x_0$ und $y = \pm y_0$ mit $x_0, y_0 \geq 0$.
+          $$|x\cdot y| =  |\pm x_0\cdot y_0 | = |x_0 \cdot y_0| = |x_0|\cdot|y_0|=|x|\cdot|y|$$
+          \begin{flushright}$\square$\end{flushright}
+          
+        \item[] Zu \eqref{eq:b2}: \\
+          Wegen $ x \leq |x|$ und $y \leq |y|$ (folgt aus der Definition)
+          $$x + y \leq |x| + |y|$$
+          $$\textrm{wegen } \quad -x \leq |x| \\ \textrm{ und } -y \leq |y| \quad \textrm{ gilt}$$
+          $$\begin{array}{r l}
+            -x - y = -(x+y)  &\leq |x| + |y| \\
+            \Rightarrow |x + y| &\leq |x| + |y| 
+          \end{array}$$
+          \begin{flushright}$\square$\end{flushright}
+          
+          
+        \item[] Zu \eqref{eq:b3}: dies folgt direkt aus \eqref{eq:b2}, denn  
+          \begin{align*}
+            |x| = |x+y-y| &\leq |x+y|+|-y| = |x + y| + |y| \\
+            \textrm{d.h. } \qquad \qquad |x|-|y| &\leq |x+y| \\
+            |y| = |y + x - x| &\leq |y + x| + |-x| = |y + x| + |x| \\
+            \textrm{d.h. } \qquad \qquad |y|-|x| &\leq |x+y| \\
+          \end{align*}
+          zusammen folgt die Aussage von \eqref{eq:b3}.
+          \begin{flushright}$\square$\end{flushright}
+          
+          
+      \end{itemize}
+  \end{description}
+  
+  
+  \subsection*{Ganzzahlige Potenzen reeller Zahlen:}
+  $$x \in \mathbb{R} \textrm{, } k \in \mathbb{N} \quad x^k = \underbrace{x  \cdot  x  \cdots  x}_{k \textrm{ mal}} \quad x^0 := 1$$
+  $$\textrm{für } x \neq 0 : x^{-1} = \frac{1}{x} \textrm{ und wir definieren für } k \in \mathbb{Z}, k < 0. \quad x ^{k} := \frac{1}{x} ^{-k}$$
+  
+  Dann gilt offenbar $$x^k  \cdot  x ^l = x ^{k+l}$$.
+  \subsection*{Wurzelziehen}
+  
+  $$x \in \mathbb{R}, x > 0,\quad k \in N$$
+  
+  \begin{description}
+    \item[Beh:] $∃y \in \mathbb{R}, y > 0$ mit $y ^ k = x$. Wir schreiben dann 
+      \marginpar{{\scriptsize (Beweis am Freitag)}} $$y = \sqrt[k]{x}$$
+  \end{description}
+  
+  \subsection*{Einleitung zu Satz 1}  
+  
+  Sei $A=(a_1,\dotsc, a_n)$ ein n-Tupel positiver reeller Zahlen $a_i \in \mathbb{R}_+$:
+  
+  \begin{align*}
+    H_n(A) &:= \frac{n}{\frac{1}{a_1} + ... + \frac{1}{a_n}} & \textrm{harmonisches Mittel} \\
+    G_n(A) &:= \sqrt[n]{a_1 \cdots a_n} & \textrm{geometrisches Mittel}\\
+    A_n(A) &:= \frac{a_1 + ... + a_n}{n}  & \textrm{arithmetisches Mittel}\\
+    Q_n(A) &:= \sqrt{\frac{a_1^2 + ... + a_n^2}{n}} & \textrm{quadratisches  Mittel}
+  \end{align*}
+  
+  \section*{Satz 1}
+  
+  Für jedes n-Tupel $A=(a_1,\dotsc, a_n)$ positiver reeller Zahlen gilt:
+  $$\textrm{min}(a_1,\dotsc, a_n) \underset{\textrm{(1)}}{\leq} 
+  H_n(A) \underset{\textrm{(2)}}{\leq} 
+  G_n(A) \underset{\textrm{(3)}}{\leq} 
+  A_n(A) \underset{\textrm{(4)}}{\leq} 
+  Q_n(A) \underset{\textrm{(5)}}{\leq} 
+  \textrm{max}(a_1,\dotsc, a_n)$$
+  
+  \newpage
+  \begin{description}
+    \item[Bew:] \hfill
+      
+      \begin{itemize}
+        
+        \item[] Zu (1): O.B.d.A $a_1 \leq a_2 \leq .. \leq a_n$, d.h. $a_1 =$ min$(a_1,\dotsc, a_n)$
+          Dann gilt $\forall i = 1,\dotsc, n$:
+          
+          \begin{align*}
+            & &a_1 &\leq a_i \\
+            &\Rightarrow &\frac{1}{a_1} &\geq \frac{1}{a_i} \\
+            &\Rightarrow &\frac{1}{a_1} + \ldots + \frac{1}{a_n} &\leq n  \cdot  \frac{1}{a_n} \\
+            &\Rightarrow &H_n(A) = \frac{n}{\frac{1}{a_1} + \ldots + \frac{1}{a_n}} &\geq 
+            \frac{n}{\left(\frac{n}{a_1}\right)} = a_1 = \textrm{min}(a_1,\dotsc, a_n)
+          \end{align*}
+          \begin{flushright}$\square$\end{flushright}
+          
+        \item[] Zu (3): Induktion nach $n$:
+          $$n = 1: A_1(a_1) = a_1 = G_1(a_1)$$
+          
+          Ind-vor: Die Aussage gilt für alle $(n-1)$ - Tupel positiver reeller Zahlen.
+          
+          Ind-beh: Die Aussage gilt für alle $n$  - Tupel positiver reeller Zahlen.
+          
+          Sei $A=(a_1,\dotsc, a_n)$ ein $n$-Tupel positiver reeller Zahlen und\\
+          $A' := (a_1,\dotsc, a_{n-1})$ ein $(n-1)$-Tupel positiver reeller Zahlen.
+          
+          
+          Wir zeigen:
+          \renewcommand{\theequation}{*} 
+          \begin{equation}  
+            A_n(A) - G_n(A) \geq \frac{n-1}{n}    \cdot  \bigg( A_{n-1}(A') - G_{n-1}(A')\bigg)
+          \end{equation}
+          
+          Um (*) zu beweisen, zeigen wir zunächst:
+          \renewcommand{\theequation}{**} 
+          \begin{equation}  
+            \textrm{Für jedes } x \geq 0 : x ^ n + n - 1 \geq n  \cdot  x
+          \end{equation}
+          
+          \textbf{Bew.} von (**): $$x ^ n - nx + n -1 = (x-1)(x ^{n-1} + x^{n-2}+...+x-n-1)$$
+          
+          
+          Für $x \geq 1$ sind beide Faktoren $\geq 0, \Rightarrow x ^ n - nx + n - 1 \geq 0$.
+          
+          Für $x \leq 1$ sind beide Faktoren $< 0, \Rightarrow x ^ n - nx + n - 1 \geq 0$.
+          \begin{flushright}$ \square $ \end{flushright}
+          
+          \newpage
+          
+          Nun gilt aber 
+          $$\frac{G_{n-1}(A')}{n} \left( (n-1)\cdot  \frac{A_{n-1}(A')}{G_{n-1}(A')} + 
+          \left( \frac{G_n(A)}{G_{n-1}(A')} \right) ^{\displaystyle n} \right)$$
+          $$= \frac{n - 1}{n} \cdot A_{n-1}(A') + \frac{1}{n} \cdot \frac{G_n(A)^n}{G_{n-1}(A')^{n-1}}$$
+          $$ = \frac{a_1 + ... + a_{n-1}}{n} + \frac{a_n}{n} = A_n(A)$$
+          
+          
+          Daraus folgt aber
+          $$A_n(A) = \frac{G_{n-1}(A')}{n} \cdot \left( (n-1) \cdot \frac{A_{n-1}(A')}{G_{n-1}(A')} + 
+          \left( \frac{G_n(A)}{G_{n-1}(A')} \right) ^{\displaystyle n} \right) $$
+          \reversemarginpar \marginpar{\tiny \begin{center}Benutzung von (**)\end{center} $$x = \frac{G_n(A)}{G_{n-1}(A')}$$}
+          $$\geq  \frac{G_{n-1}(A')}{n}\cdot \left( (n-1) \cdot \frac{A_{n-1}(A')}{G_{n-1}(A')} + 
+          n \cdot \frac{G_n(A)}{G_{n-1}(A')} - n + 1 \right)$$
+          $$= \frac{n-1}{n} \cdot A_{n-1}(A') + G_n(A) - G_{n-1}(A')  \cdot   \frac{n-1}{n}$$
+          $$ \Leftrightarrow (*)$$
+          \begin{flushright}$\square$\end{flushright}
+          
+          
+          \begin{description}
+            \item[Bew (2):] z.z. $H_n(A) \leq G_n(A)$
+              
+              Sei $A=(a_1,\dotsc, a_n)$ ein $n$-Tupel pos. reeller Zahlen.
+              
+              Wir betrachten $\overline{A} = \frac{1}{a_1} + ... + \frac{1}{a_n}$. 
+              
+              
+              \begin{align*}
+                &\textrm{Wir wissen } & G_n(\overline{A}) &\leq A_n(\overline{A}) \\
+                &\Leftrightarrow & \sqrt[n]{\scriptstyle \frac{1}{a_1 \cdots a_n}} &\leq 
+                \frac{\scriptstyle \frac{1}{a_1} + \ldots + \frac{1}{a_n}}{n} \\
+                &\Leftrightarrow & \frac{n}{\scriptstyle \frac{1}{a_1} + \ldots + \frac{1}{a_n}} &\leq \sqrt[n]{a_1 \cdots a_n}
+              \end{align*}
+              \begin{flushright}$\square$\end{flushright}
+          \end{description}
+          
+        \item[] Zu (4) z.z. $A_n(A) \leq Q_n (A)$
+          
+          \begin{align*}
+            &\textrm{Wir wissen } &\forall x,y \in \mathbb{R}: && (x-y)^2 & \geq 0 \\
+            && \Leftrightarrow &&x^2 - 2xy + y^2 &\geq 0 \\
+            && \Leftrightarrow &&x^2 + y^2 &\geq 2xy
+          \end{align*}
+          
+          Zu $A=(a_1,\dotsc, a_n)$ betrachten wir
+          
+          \begin{align*}
+            &&(a_1 +\ldots + a_n)^2 &= a_1^2 + ... + a_n^2 + \underbrace{2a_1 a_2}_{\leq a_1^2+a_2^2} + 
+            \underbrace{2a_1 a_3}_{\leq a_1^2+a_3^2} + ... + \underbrace{2a_{n-1} a_n}_{\leq a_{n-1}^2+a_n^2} \\
+            &&& \leq n ( a_1^2 + ... + a_n^2 ) \\
+            &\Leftrightarrow &\left( \frac{a_1 + \ldots + a_n}{n} \right) ^ 2 &\leq \frac{a_1^2 + ... + a_n^2}{n} \\
+            &\Leftrightarrow &A_n(A) &\leq Q_n(A)
+          \end{align*}
+          \begin{flushright}$\square$\end{flushright}
+          
+          Zu (5) z.z. $Q_n(A) \leq \textrm{max}(a_1,\dotsc, a_n)$
+          
+          Sei wieder $A = (a_1,\dotsc, a_n) , \qquad a_1 \leq a_2 \leq \ldots \leq a_n$
+          
+          $$Q_n(A) = \sqrt{\frac{a_1^2 + ... + a_n^2}{n}} \leq \sqrt{\frac{n \cdot a_n^2}{n}} = a_n = \textrm{max}(a_1,\dotsc, a_n)$$
+          
+          \begin{flushright}$\square$\end{flushright}
+      \end{itemize}
+  \end{description}
+\end{document}
